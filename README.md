@@ -1,2 +1,2 @@
 # Background-Management-System
-联系用的后台管理系统
+练习用的后台管理系统
