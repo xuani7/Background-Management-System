@@ -24,7 +24,7 @@
                 size="mini"
                 title="下架sku"
                 @click="cancelSale(row)"
-                v-if="row.isSale == 0"
+                v-if="row.isSale == 1"
                 style="margin:5px"
                 ></hint-button
               >
@@ -135,6 +135,7 @@ export default {
         this.skuList = result.data.records
       }
     },
+
     handleSizeChange(limit){
       this.limit = limit
       this.getSkuList()
@@ -151,7 +152,7 @@ export default {
     async cancelSale(sku){
       let result = await this.$API.sku.reqCancelSale(sku.id)
       if(result.code == 200){
-        sku.isSale = 1
+        sku.isSale = 0
         this.$message({type:'success',message:"下架成功"})
         this.getSkuList(this.page)
       }
@@ -160,7 +161,7 @@ export default {
     async onSale(sku){
       let result = await this.$API.sku.reqOnSale(sku.id)
       if(result.code == 200){
-        sku.isSale = 0
+        sku.isSale = 1
         this.$message({type:'success',message:"上架成功"})
         this.getSkuList(this.page)
       }
