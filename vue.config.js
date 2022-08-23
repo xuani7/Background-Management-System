@@ -47,8 +47,8 @@ module.exports = {
         target: "http://39.98.123.211:8510",
         // target: "http://gmall-h5-api.atguigu.cn",
         pathRewrite: {"^/dev-api/admin/product" : ""}
-      }
-    }
+      },
+    },
   },
   configureWebpack: {
     // provide the app's title in webpack's name field, so that
